@@ -5,7 +5,6 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import GifIcon from '@material-ui/icons/Gif';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
-import { Avatar } from '@material-ui/core';
 import Message from './Message';
 
 function Chat() {
