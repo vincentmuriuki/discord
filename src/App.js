@@ -9,21 +9,24 @@ import { auth } from './firebase/firebase';
 import { login, logout } from './features/userSlice'
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
+  // useEffect runs once once components loads
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
+      console.log(authUser)
       if (authUser) {
         // user is logged in
-        dispatch(login({
-          uid: authUser.uid,
-          photo: authUser.photoURL,
-          email: authUser.email,
-          displayName: authUser.displayName
-        }))
-      }
-      else {
+        dispatch(
+          login({
+            uid: authUser.uid,
+            displayName: authUser.displayName,
+            photo: authUser.photoURL,
+            email: authUser.email
+          })
+        )
+      } else {
         // user is logged out
         dispatch(logout())
       }
