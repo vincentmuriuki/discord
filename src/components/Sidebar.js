@@ -49,11 +49,11 @@ function Sidebar() {
             <ExpandMoreIcon />
             <h4>Text Channels</h4>
           </div>
-          <AddIcon onClick={handleAddChannel()} className='sidebar__addChannel' />
+          <AddIcon onClick={handleAddChannel} className='sidebar__addChannel' />
         </div>
         <div className='sidebar__channelsList'>
-          {channels.map(channel =>(
-              <SidebarChannel />
+          {channels.map(({ id, channel }) =>(
+              <SidebarChannel key={id} id={id} channelName={channel.channelName} />
           ))}
           
         </div>
